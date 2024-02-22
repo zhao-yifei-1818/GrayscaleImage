@@ -47,14 +47,18 @@ bool GrayscaleImage::operator==(const GrayscaleImage& other) const
   bool val1 = (height == other.height);
   bool val2 = (width == other.width);
 
+  if (!val1 || !val2) {
+    return false;
+  }
+
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      if (pixels[i * j + j] == (getPixel(i, j))) {
+      if (pixels[i * width + j] != other.pixels[i * width + j]) {
         return false;
       }
     }
   }
-  return (val1 && val2);
+  return true;
 }
 
 GrayscaleImage::~GrayscaleImage()
