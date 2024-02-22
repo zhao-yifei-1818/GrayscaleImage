@@ -39,7 +39,7 @@ GrayscaleImage::GrayscaleImage(const GrayscaleImage& other)
 GrayscaleImage& GrayscaleImage::operator=(const GrayscaleImage& other)
 {
   if (&other != this) {
-    delete pixels;
+    delete[] pixels;
     pixels = new uint8_t[other.width * other.height];
     this->height = other.height;
     this->width = other.width;
