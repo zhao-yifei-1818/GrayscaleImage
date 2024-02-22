@@ -124,21 +124,22 @@ TEST_CASE("copy constuctor")
   REQUIRE(g2 == gradient);
 }
 
-// TEST_CASE( "assignment" ) {
-//     cout << "6: Assignment operator" << endl;
-//     GrayscaleImage g(3, 5);
-//     getGradientFill(g);            //Add some stuff to it
+TEST_CASE("assignment")
+{
+  cout << "6: Assignment operator" << endl;
+  GrayscaleImage g(3, 5);
+  getGradientFill(g); // Add some stuff to it
 
-//     GrayscaleImage g2(1, 1);
-//     g2 = g;
-//     REQUIRE( g == g2 );
+  GrayscaleImage g2(1, 1);
+  g2 = g;
+  REQUIRE(g == g2);
 
-//     //Make sure we have a deep copy
-//     wipe(g);
-//     GrayscaleImage gradient(3, 5);
-//     getGradientFill(gradient);
-//     REQUIRE( g2 == gradient );
-// }
+  // Make sure we have a deep copy
+  wipe(g);
+  GrayscaleImage gradient(3, 5);
+  getGradientFill(gradient);
+  REQUIRE(g2 == gradient);
+}
 
 // TEST_CASE( "addFrame" ) {
 //     cout << "7: addFrame" << endl;
