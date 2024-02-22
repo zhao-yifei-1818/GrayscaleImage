@@ -28,10 +28,10 @@ GrayscaleImage::GrayscaleImage(const GrayscaleImage& other)
 {
   height = other.height;
   width = other.width;
-  pixels = new unit8_t[width * height];
+  pixels = new uint8_t[width * height];
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      pixels[i + width + j] = (other.pixels[i * width + j]);
+      pixels[i * width + j] = (other.pixels[i * width + j]);
     }
   }
 }
