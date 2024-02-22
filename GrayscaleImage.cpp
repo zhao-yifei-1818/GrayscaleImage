@@ -30,10 +30,17 @@ void GrayscaleImage::fill(uint8_t brightness)
     pixels[i] = brightness;
   }
 }
-string GrayscaleImage::toString() const {
-    // string desired = "0\t100\t0\t\n25\t0\t50\t\n";
-    return get}
-
+string GrayscaleImage::toString() const
+{
+  // string desired = "0\t100\t0\t\n25\t0\t50\t\n";
+  string returnString;
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      returnString += (getPixel(i, j) + "\t");
+    }
+  }
+  return returnString += "/n";
+}
 GrayscaleImage::~GrayscaleImage()
 {
   delete[] pixels;
