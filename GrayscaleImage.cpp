@@ -114,17 +114,20 @@ GrayscaleImage GrayscaleImage::crop(int startRow, int startCol, int newHeight,
                                     int newWidth) const
 {
   GrayscaleImage temp(newHeight, newWidth);
+
   if (startRow < 0 || startCol < 0 || startRow + newHeight > height
       || startCol + newWidth > width) {
-    throw std::out_of_range("Crop range is out of bounds");
+    throw std::out_of_range("out of range"); // throw out of range
   }
 
   for (int i = 0; i < newHeight; i++) {
     for (int j = 0; j < newWidth; j++) {
       temp.pixels[i * newWidth + j] =
-          pixels[(startRow + i) * width + (startCol + j)];
+          pixels[(startRow + i) * width
+                 + (startCol + j)]; // assigning at right starting place
     }
   }
+  return temp;
 }
 
 int GrayscaleImage::getWidth() const
