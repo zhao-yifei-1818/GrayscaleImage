@@ -20,6 +20,12 @@ GrayscaleImage::GrayscaleImage(int heightVal, int widthVal)
     pixels[i] = 0;
   }
 }
+void GrayscaleImage::fill(uint8_t brightness)
+{
+  for (int i = 0; i < width * height; i++) {
+    pixels[i] = brightness;
+  }
+}
 GrayscaleImage::~GrayscaleImage()
 {
   delete[] pixels;
