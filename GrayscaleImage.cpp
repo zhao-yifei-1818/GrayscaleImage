@@ -20,7 +20,10 @@ GrayscaleImage::GrayscaleImage(int heightVal, int widthVal)
     pixels[i] = 0;
   }
 }
-
+GrayscaleImage::~GrayscaleImage()
+{
+  delete[] pixels;
+}
 int GrayscaleImage::getWidth() const
 {
   return width;
