@@ -5,6 +5,7 @@
 //    may be republished without approval.
 //----------------------------------------------------------
 
+#include <iostream>
 #include <stdexcept>
 #include <string>
 using namespace std;
@@ -26,6 +27,11 @@ void GrayscaleImage::fill(uint8_t brightness)
     pixels[i] = brightness;
   }
 }
+string GrayscaleImage::toString() const
+{
+  std::cout << image.toString();
+}
+
 GrayscaleImage::~GrayscaleImage()
 {
   delete[] pixels;
