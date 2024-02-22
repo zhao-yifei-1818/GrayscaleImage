@@ -107,21 +107,22 @@ TEST_CASE("operator==")
   CHECK(!(g == g2));
 }
 
-// TEST_CASE( "copy constuctor" ) {
-//     cout << "5: Copy ctor" << endl;
-//     GrayscaleImage g(3, 5);
-//     getGradientFill(g);            //Add some stuff to it
+TEST_CASE("copy constuctor")
+{
+  cout << "5: Copy ctor" << endl;
+  GrayscaleImage g(3, 5);
+  getGradientFill(g); // Add some stuff to it
 
-//     GrayscaleImage g2(g);
-//     REQUIRE( g == g2 );
+  GrayscaleImage g2(g);
+  REQUIRE(g == g2);
 
-//     //Make sure we have a deep copy
-//     wipe(g);
+  // Make sure we have a deep copy
+  wipe(g);
 
-//     GrayscaleImage gradient(3, 5);
-//     getGradientFill(gradient);
-//     REQUIRE( g2 == gradient );
-// }
+  GrayscaleImage gradient(3, 5);
+  getGradientFill(gradient);
+  REQUIRE(g2 == gradient);
+}
 
 // TEST_CASE( "assignment" ) {
 //     cout << "6: Assignment operator" << endl;
