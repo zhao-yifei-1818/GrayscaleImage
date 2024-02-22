@@ -39,7 +39,7 @@ string GrayscaleImage::toString() const
       returnString += (to_string(getPixel(i, j)) + "\t");
     }
   }
-  return returnString += "/n";
+  return returnString += "\n";
 }
 GrayscaleImage::~GrayscaleImage()
 {
