@@ -38,8 +38,9 @@ string GrayscaleImage::toString() const
     for (int j = 0; j < width; j++) {
       returnString += (to_string(getPixel(i, j)) + "\t");
     }
+    returnString += "\n";
   }
-  return returnString += "\n";
+  return returnString;
 }
 GrayscaleImage::~GrayscaleImage()
 {
