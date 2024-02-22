@@ -24,6 +24,20 @@ GrayscaleImage::GrayscaleImage(int heightVal, int widthVal)
     pixels[i] = 0;
   }
 }
+GrayscaleImage::GrayscaleImage(const GrayscaleImage& other)
+{
+  height = other.height;
+  width = other.width;
+  pixels = new unit8_t[width * height];
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      pixels[i + width + j] = (other.pixels[i * width + j]);
+    }
+  }
+}
+
+// GrayscaleImage::GrayscaleImage& operator=(const GrayscaleImage& other){}
+
 void GrayscaleImage::fill(uint8_t brightness)
 {
   for (int i = 0; i < width * height; i++) {
