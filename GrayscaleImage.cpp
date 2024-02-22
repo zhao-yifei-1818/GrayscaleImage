@@ -93,6 +93,23 @@ GrayscaleImage::~GrayscaleImage()
 {
   delete[] pixels;
 }
+GrayscaleImage GrayscaleImage::addFrame(int padding, uint8_t brightness) const
+{
+  GrayscaleImage temp(padding * 2 + height, padding * 2 + width);
+  for (int i = 0; i < temp.height; i++) {
+    for (int j = 0; j < temp.width; j++) {
+      // this feels like centering a div in html
+      if (i < padding || i >= padding + height || j < padding
+          || j >= padding + width) {
+        temp.pixels[i * temp.width + j] = brightness;
+      } else {
+        temp.pixels[i * temp.width + j] =
+            pixels[(i - padding) * width + (j - padding)];
+      }
+    }
+  }
+}
+
 int GrayscaleImage::getWidth() const
 {
   return width;
