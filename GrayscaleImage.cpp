@@ -36,7 +36,21 @@ GrayscaleImage::GrayscaleImage(const GrayscaleImage& other)
   }
 }
 
-// GrayscaleImage::GrayscaleImage& operator=(const GrayscaleImage& other){}
+GrayscaleImage& GrayscaleImage::operator=(const GrayscaleImage& other)
+{
+  if (&other != this) {
+    delete pixels;
+    pixels = new uint8_t[other.width * other.height];
+    this->height = other.height;
+    this->width = other.width;
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        pixels[i * width + j] = (other.pixels[i * width + j]);
+      }
+    }
+  }
+  return *this;
+}
 
 void GrayscaleImage::fill(uint8_t brightness)
 {
