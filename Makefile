@@ -4,10 +4,10 @@ CXXFLAGS += -std=c++17 -pedantic -pedantic-errors
 CXXFLAGS += -Wfloat-equal -Wredundant-decls -Wshadow -Wconversion
 
 # list .h files here
-HEADERS =
+HEADERS = GrayscaleImage.h
 
 # list .cpp files here
-TEST_FILES = tests.cpp
+TEST_FILES = GrayscaleImageTester.cpp GrayscaleImage.cpp
 
 .PHONY: all
 all: tests.exe
