@@ -108,6 +108,7 @@ GrayscaleImage GrayscaleImage::addFrame(int padding, uint8_t brightness) const
       }
     }
   }
+  return temp;
 }
 
 int GrayscaleImage::getWidth() const
