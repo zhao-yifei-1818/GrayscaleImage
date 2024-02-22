@@ -36,7 +36,7 @@ string GrayscaleImage::toString() const
   string returnString;
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      returnString += (getPixel(i, j) + "\t");
+      returnString += (to_string(getPixel(i, j)) + "\t");
     }
   }
   return returnString += "/n";
