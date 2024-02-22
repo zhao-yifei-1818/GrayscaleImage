@@ -110,6 +110,22 @@ GrayscaleImage GrayscaleImage::addFrame(int padding, uint8_t brightness) const
   }
   return temp;
 }
+GrayscaleImage GrayscaleImage::crop(int startRow, int startCol, int newHeight,
+                                    int newWidth) const
+{
+  GrayscaleImage temp(newHeight, newWidth);
+  if (startRow < 0 || startCol < 0 || startRow + newHeight > height
+      || startCol + newWidth > width) {
+    throw std::out_of_range("Crop range is out of bounds");
+  }
+
+  for (int i = 0; i < newHeight; i++) {
+    for (int j = 0; j < newWidth; j++) {
+      temp.pixels[i * newWidth + j] =
+          pixels[(startRow + i) * width + (startCol + j)];
+    }
+  }
+}
 
 int GrayscaleImage::getWidth() const
 {
