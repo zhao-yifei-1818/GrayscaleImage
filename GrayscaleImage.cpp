@@ -42,6 +42,21 @@ string GrayscaleImage::toString() const
   }
   return returnString;
 }
+bool GrayscaleImage::operator==(const GrayscaleImage& other) const
+{
+  bool val1 = (height == other.height);
+  bool val2 = (width == other.width);
+
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      if (pixels[i * j + j] == (getPixel(i, j))) {
+        return false;
+      }
+    }
+  }
+  return (val1 && val2);
+}
+
 GrayscaleImage::~GrayscaleImage()
 {
   delete[] pixels;
