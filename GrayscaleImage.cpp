@@ -10,24 +10,37 @@
 using namespace std;
 
 #include "GrayscaleImage.h"
+GrayscaleImage::GrayscaleImage(int heightVal, int widthVal)
+{
+  height = heightVal;
+  width = widthVal;
 
-
-int GrayscaleImage::getWidth() const {
-    return width;
+  pixels = new uint8_t[width * height];
+  for (int i = 0; i < width * height; i++) {
+    pixels[i] = 0;
+  }
 }
 
-int GrayscaleImage::getHeight() const {
-    return height;
+int GrayscaleImage::getWidth() const
+{
+  return width;
 }
 
-uint8_t GrayscaleImage::getPixel(int row, int col) const {
-    if(row >= height || row < 0 || col >= width || col < 0)
-        throw out_of_range("Bad index in getPixel");
-    return pixels[row * width + col];
+int GrayscaleImage::getHeight() const
+{
+  return height;
 }
 
-void GrayscaleImage::setPixel(int row, int col, uint8_t brightness) {
-    if(row >= height || row < 0 || col >= width || col < 0)
-        throw out_of_range("Bad index in setPixel");
-    pixels[row * width + col] = brightness;
+uint8_t GrayscaleImage::getPixel(int row, int col) const
+{
+  if (row >= height || row < 0 || col >= width || col < 0)
+    throw out_of_range("Bad index in getPixel");
+  return pixels[row * width + col];
+}
+
+void GrayscaleImage::setPixel(int row, int col, uint8_t brightness)
+{
+  if (row >= height || row < 0 || col >= width || col < 0)
+    throw out_of_range("Bad index in setPixel");
+  pixels[row * width + col] = brightness;
 }
