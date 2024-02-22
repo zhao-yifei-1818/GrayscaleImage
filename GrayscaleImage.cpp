@@ -4,7 +4,10 @@
 // Neither this code, nor any works derived from it
 //    may be republished without approval.
 //----------------------------------------------------------
-
+/**
+ * @brief Assignment 5
+ * @name Yifei Zhao
+ */
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -27,10 +30,9 @@ void GrayscaleImage::fill(uint8_t brightness)
     pixels[i] = brightness;
   }
 }
-string GrayscaleImage::toString() const
-{
-  std::cout << image.toString();
-}
+string GrayscaleImage::toString() const {
+    // string desired = "0\t100\t0\t\n25\t0\t50\t\n";
+    return get}
 
 GrayscaleImage::~GrayscaleImage()
 {
